@@ -15,3 +15,4 @@ Shipment Discrepancy Tracker is a web application that allows users to record, a
 * MySQL
 
 ## License
+https://github.com/kschaffer7/shipment-discrepancy-tracker/blob/main/LICENSE
