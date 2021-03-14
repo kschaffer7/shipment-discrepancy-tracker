@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class DiscrepancyFormController {
-    @GetMapping
+    @GetMapping()
     @ResponseBody
     public String form() {
-        return "Insert form discrepancy form here!";
+        return "Hello, World!";
     }
 }
