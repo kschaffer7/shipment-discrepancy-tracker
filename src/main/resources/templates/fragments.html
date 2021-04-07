@@ -5,17 +5,21 @@
     <title>Shipment Discrepancy Tracker</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" th:href="@{/styles.css}">
-
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
 
 <header th:fragment="header">
-    <h1 th:text="${title}">Shipment Discrepancy Tracker</h1>
-
+    <div class="menuBar"><h1>Shipment Discrepancy Tracker</h1>
     <ul class="nav" style="float:right;">
         <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
     </ul>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/discrepancies">All Discrepancies</a></li>
+        <li class="nav-item"><a class="nav-link" href="/discrepancies/add">Add Discrepancies</a></li>
+    </ul></div>
+    <br>
+    <h2 th:text="${title}"></h2>
 </header>
 
 </body>

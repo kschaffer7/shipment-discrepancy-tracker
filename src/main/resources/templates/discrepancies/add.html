@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<form method="post" action="/discrepancies/add">
+    <input type="text" name="discrepancyName">
+    <input type="submit" value="Add Discrepancy">
+</form>
+
+</body>
+</html>

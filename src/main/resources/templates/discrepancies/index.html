@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<header th:replace="fragments :: header"></header>
+
+<ul>
+    <th:block th:each="discrepancy : ${discrepancies}">
+        <li th:text="${discrepancy}"></li>
+    </th:block>
+</ul>
+
+<form method="post" action="/discrepancies/add">
+    <input type="submit" value="Add Discrepancy">
+</form>
+
+</body>
+</html>
