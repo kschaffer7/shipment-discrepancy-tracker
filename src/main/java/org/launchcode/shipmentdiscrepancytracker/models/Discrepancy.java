@@ -1,35 +1,36 @@
 package org.launchcode.shipmentdiscrepancytracker.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+//@Entity tells spring boot that this is a persistent object
+@Entity
 public class Discrepancy {
 
-    private String receivingClerk;
+    //@Id declares primary key
+    @Id
+    @GeneratedValue
+    private int id;
 
-    private String vendor;
+    private String discrepancy;
 
-    private String itemNumber;
+    public Discrepancy() {}
 
-    public String getReceivingClerk() {
-        return receivingClerk;
+    public Discrepancy(int id, String discrepancy) {
+        this.id = id;
+        this.discrepancy = discrepancy;
     }
 
-    public void setReceivingClerk(String receivingClerk) {
-        this.receivingClerk = receivingClerk;
+    public int getId() {
+        return this.id;
     }
 
-    public String getVendor() {
-        return vendor;
+    public String getDiscrepancy() {
+        return this.discrepancy;
     }
 
-    public void setVendor(String vendor) {
-        this.vendor = vendor;
+    public void setDiscrepancy(String discrepancy) {
+        this.discrepancy = discrepancy;
     }
-
-    public String getItemNumber() {
-        return itemNumber;
-    }
-
-    public void setItemNumber(String itemNumber) {
-        this.itemNumber = itemNumber;
-    }
-
 }

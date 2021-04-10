@@ -1,7 +1,9 @@
 package org.launchcode.shipmentdiscrepancytracker.data;
 
-import org.launchcode.shipmentdiscrepancytracker.models.User;
+import org.launchcode.shipmentdiscrepancytracker.models.Discrepancy;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface DiscrepancyRepository extends CrudRepository<User, Integer> {
+@Repository
+public interface DiscrepancyRepository extends CrudRepository<Discrepancy, Integer> {
 }

@@ -1,4 +1,5 @@
 .menuBar {
-    background-color: black;
+    background-color: rgb(56,56,56);
     color: white;
+    padding: 5px;
 }

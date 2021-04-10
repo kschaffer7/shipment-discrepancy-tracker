@@ -4,15 +4,13 @@
 <body class="container">
 <header th:replace="fragments :: header"></header>
 
+<p th:unless="${discrepancies} and ${discrepancies.size()}">No Discrepancies!</p>
+
 <ul>
     <th:block th:each="discrepancy : ${discrepancies}">
-        <li th:text="${discrepancy}"></li>
+        <li th:text="${discrepancy.discrepancy}"></li>
     </th:block>
 </ul>
-
-<form method="post" action="/discrepancies/add">
-    <input type="submit" value="Add Discrepancy">
-</form>
 
 </body>
 </html>
