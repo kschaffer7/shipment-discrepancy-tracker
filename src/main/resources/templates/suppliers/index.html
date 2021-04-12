@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<header th:replace="fragments :: header"></header>
+
+<p th:unless="${suppliers} and ${suppliers.size()}">No Suppliers!</p>
+
+<ul>
+    <li th:each="supplier : ${suppliers}">
+        <a th:href="@{'/suppliers/view/' + ${supplier.id}}" th:text="${supplier.name}"></a>
+    </li>
+</ul>
+<a th:href="@{'/suppliers/add'}">Add Supplier</a>
+
+</body>
+</html>

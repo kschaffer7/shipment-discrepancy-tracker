@@ -6,7 +6,22 @@
 <header th:replace="fragments :: header"></header>
 
 <form method="post">
-    <input type="text" name="discrepancy">
+    <div class="form-group">
+        <label th:for="purchaseOrder">Purchase Order Number</label>
+        <input class="form-control" th:field="${discrepancy.purchaseOrder}" />
+        <span th:errors="${discrepancy.purchaseOrder}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="supplier">Supplier</label>
+        <select name="supplierId">
+            <option th:each="supplier : ${suppliers}"
+                    th:text="${supplier.name}"
+                    th:value="${supplier.id}"></option>
+        </select>
+        <a th:href="@{'/suppliers/add'}">Add Suppliers</a>
+    </div>
+
     <input type="submit" value="Add Discrepancy">
 </form>
 

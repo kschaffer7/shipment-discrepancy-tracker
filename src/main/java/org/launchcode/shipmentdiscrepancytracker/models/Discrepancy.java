@@ -3,34 +3,46 @@ package org.launchcode.shipmentdiscrepancytracker.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 //@Entity tells spring boot that this is a persistent object
 @Entity
-public class Discrepancy {
+public class Discrepancy extends AbstractEntity{
 
-    //@Id declares primary key
-    @Id
-    @GeneratedValue
-    private int id;
+    @ManyToOne
+    private Supplier supplier;
 
-    private String discrepancy;
+    @NotBlank(message = "Purchase order number is required")
+    @Size(min = 1, max = 1000, message = "Purchase order number must be between 1 and 25 characters")
+    private String purchaseOrder;
+
+    public String getPurchaseOrder() {
+        return purchaseOrder;
+    }
+
+    public void setPurchaseOrder(String name) {
+        this.purchaseOrder = name;
+    }
+
+    @Override
+    public String toString() {
+        return purchaseOrder;
+    }
 
     public Discrepancy() {}
 
     public Discrepancy(int id, String discrepancy) {
-        this.id = id;
-        this.discrepancy = discrepancy;
+        super();
+        this.supplier = supplier;
     }
 
-    public int getId() {
-        return this.id;
+    public Supplier getSupplier() {
+        return supplier;
     }
 
-    public String getDiscrepancy() {
-        return this.discrepancy;
-    }
-
-    public void setDiscrepancy(String discrepancy) {
-        this.discrepancy = discrepancy;
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 }
