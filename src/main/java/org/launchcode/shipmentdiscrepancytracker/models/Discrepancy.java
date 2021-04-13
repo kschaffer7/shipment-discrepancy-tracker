@@ -18,6 +18,17 @@ public class Discrepancy extends AbstractEntity{
     @Size(min = 1, max = 1000, message = "Purchase order number must be between 1 and 25 characters")
     private String purchaseOrder;
 
+    @NotBlank(message = "Date is required")
+    private String discrepancyDate;
+
+    public String getDiscrepancyDate() {
+        return discrepancyDate;
+    }
+
+    public void setDiscrepancyDate(String discrepancyDate) {
+        this.discrepancyDate = discrepancyDate;
+    }
+
     public String getPurchaseOrder() {
         return purchaseOrder;
     }

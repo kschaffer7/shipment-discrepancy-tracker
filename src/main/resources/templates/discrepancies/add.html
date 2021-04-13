@@ -6,6 +6,19 @@
 <header th:replace="fragments :: header"></header>
 
 <form method="post">
+<!--    <div class="row g-2">-->
+<!--        <div class="col-md">-->
+<!--            <div class="form-floating">-->
+<!--                <label th:for="discrepancyDate">Date</label>-->
+<!--                <input type="date" class="form-control" id="floatingInputGrid" placeholder="01">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="form-group">
+        <label th:for="discrepancyDate">Date</label>
+        <input type="date" class="form-control" th:field="${discrepancy.discrepancyDate}"/>
+    </div>
+
     <div class="form-group">
         <label th:for="purchaseOrder">Purchase Order Number</label>
         <input class="form-control" th:field="${discrepancy.purchaseOrder}" />
