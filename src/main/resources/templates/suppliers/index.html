@@ -7,10 +7,11 @@
 <p th:unless="${suppliers} and ${suppliers.size()}">No Suppliers!</p>
 
 <ul>
-    <li th:each="supplier : ${suppliers}">
-        <a th:href="@{'/suppliers/view/' + ${supplier.id}}" th:text="${supplier.name}"></a>
-    </li>
+    <th:block th:each="supplier : ${suppliers}">
+        <li th:text="${supplier}"></li>
+    </th:block>
 </ul>
+
 <a th:href="@{'/suppliers/add'}">Add Supplier</a>
 
 </body>

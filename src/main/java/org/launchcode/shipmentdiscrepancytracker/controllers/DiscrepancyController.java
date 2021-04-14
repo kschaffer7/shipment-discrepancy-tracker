@@ -1,8 +1,10 @@
 package org.launchcode.shipmentdiscrepancytracker.controllers;
 
 import org.launchcode.shipmentdiscrepancytracker.data.DiscrepancyRepository;
+import org.launchcode.shipmentdiscrepancytracker.data.ReceivingClerkRepository;
 import org.launchcode.shipmentdiscrepancytracker.data.SupplierRepository;
 import org.launchcode.shipmentdiscrepancytracker.models.Discrepancy;
+import org.launchcode.shipmentdiscrepancytracker.models.ReceivingClerk;
 import org.launchcode.shipmentdiscrepancytracker.models.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,9 @@ public class DiscrepancyController {
     @Autowired
     private SupplierRepository supplierRepository;
 
+    @Autowired
+    private ReceivingClerkRepository receivingClerkRepository;
+
     @GetMapping
     public String displayAllDiscrepancies(Model model) {
         model.addAttribute("title", "All Discrepancies");
@@ -38,22 +43,30 @@ public class DiscrepancyController {
     public String renderAddDiscrepancyForm(Model model) {
         model.addAttribute(new Discrepancy());
         model.addAttribute("suppliers", supplierRepository.findAll());
+        model.addAttribute("receivingClerks", receivingClerkRepository.findAll());
         return "discrepancies/add";
     }
 
     // lives at /discrepancies/add
     @PostMapping("add")
-    public String processAddDiscrepancyForm(@ModelAttribute @Valid Discrepancy discrepancy, Errors errors, Model model, @RequestParam int supplierId) {
+    public String processAddDiscrepancyForm(@ModelAttribute @Valid Discrepancy discrepancy, Errors errors, Model model, @RequestParam int supplierId, @RequestParam int receivingClerkId) {
 
         if(errors.hasErrors()) {
             model.addAttribute("title", "Add Discrepancy");
             model.addAttribute(new Discrepancy());
             model.addAttribute("suppliers", supplierRepository.findAll());
+            model.addAttribute("receivingClerks", receivingClerkRepository.findAll());
             return "discrepancies/add";
         }
+
         Optional optSupplier = supplierRepository.findById(supplierId);
         Supplier supplier = (Supplier) optSupplier.get();
         discrepancy.setSupplier(supplier);
+
+        Optional optReceivingClerk = receivingClerkRepository.findById(receivingClerkId);
+        ReceivingClerk receivingClerk = (ReceivingClerk) optReceivingClerk.get();
+        discrepancy.setReceivingClerk(receivingClerk);
+
         discrepancyRepository.save(discrepancy);
         return "redirect:";
     }

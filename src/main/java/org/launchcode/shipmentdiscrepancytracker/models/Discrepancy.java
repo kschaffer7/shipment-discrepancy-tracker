@@ -14,12 +14,39 @@ public class Discrepancy extends AbstractEntity{
     @ManyToOne
     private Supplier supplier;
 
+    @ManyToOne
+    private ReceivingClerk receivingClerk;
+
     @NotBlank(message = "Purchase order number is required")
     @Size(min = 1, max = 1000, message = "Purchase order number must be between 1 and 25 characters")
     private String purchaseOrder;
 
     @NotBlank(message = "Date is required")
     private String discrepancyDate;
+
+    public Discrepancy() {}
+
+    public Discrepancy(int id, String discrepancy) {
+        super();
+        this.supplier = supplier;
+        this.receivingClerk = receivingClerk;
+    }
+
+    public ReceivingClerk getReceivingClerk() {
+        return receivingClerk;
+    }
+
+    public void setReceivingClerk(ReceivingClerk receivingClerk) {
+        this.receivingClerk = receivingClerk;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
 
     public String getDiscrepancyDate() {
         return discrepancyDate;
@@ -40,20 +67,5 @@ public class Discrepancy extends AbstractEntity{
     @Override
     public String toString() {
         return purchaseOrder;
-    }
-
-    public Discrepancy() {}
-
-    public Discrepancy(int id, String discrepancy) {
-        super();
-        this.supplier = supplier;
-    }
-
-    public Supplier getSupplier() {
-        return supplier;
-    }
-
-    public void setSupplier(Supplier supplier) {
-        this.supplier = supplier;
     }
 }

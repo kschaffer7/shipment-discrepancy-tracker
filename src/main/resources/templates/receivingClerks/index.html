@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<header th:replace="fragments :: header"></header>
+
+<p th:unless="${receivingClerks} and ${receivingClerks.size()}">No Receiving Clerks!</p>
+
+<ul>
+    <th:block th:each="receivingClerk : ${receivingClerks}">
+        <li th:text="${receivingClerk}"></li>
+    </th:block>
+</ul>
+<a th:href="@{'/receivingClerks/add'}">Add Receiving Clerk</a>
+
+</body>
+</html>

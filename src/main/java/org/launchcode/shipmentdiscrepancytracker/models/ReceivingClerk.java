@@ -8,20 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Supplier extends AbstractEntity{
+public class ReceivingClerk extends AbstractEntity{
 
     @NotBlank(message = "Name is required")
-    @Size(min = 1, max = 1000, message = "Name must be between 1 and 1000 characters")
+    @Size(min = 1, max = 50, message = "Name must be between 1 and 50 characters")
     private String name;
 
-    @OneToMany(mappedBy = "supplier")
+    @OneToMany(mappedBy = "receivingClerk")
     private final List<Discrepancy> discrepancies = new ArrayList<>();
 
-    public Supplier(@Size(min = 1, max = 1000, message = "Name must be between 1 and 1000 characters") String name) {
+    public ReceivingClerk(@Size(min = 1, max = 100, message = "Name must be between 1 and 50 characters") String name) {
         this.name = name;
     }
 
-    public Supplier () {}
+    public ReceivingClerk () {}
 
     public String getName() {
         return name;
@@ -39,6 +39,5 @@ public class Supplier extends AbstractEntity{
     public String toString() {
         return name;
     }
-
 
 }
