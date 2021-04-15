@@ -24,6 +24,16 @@ public class Discrepancy extends AbstractEntity{
     @NotBlank(message = "Date is required")
     private String discrepancyDate;
 
+    private String discrepancyIssues;
+
+
+
+    private String isRemedied;
+
+    private String notRemedied;
+
+    private String vendorCorrespondence;
+
     public Discrepancy() {}
 
     public Discrepancy(int id, String discrepancy) {
@@ -67,5 +77,37 @@ public class Discrepancy extends AbstractEntity{
     @Override
     public String toString() {
         return purchaseOrder;
+    }
+
+    public String getDiscrepancyIssues() {
+        return discrepancyIssues;
+    }
+
+    public void setDiscrepancyIssues(String discrepancyIssues) {
+        this.discrepancyIssues = discrepancyIssues;
+    }
+
+    public String getIsRemedied() {
+        return isRemedied;
+    }
+
+    public void setIsRemedied(String isRemedied) {
+        this.isRemedied = isRemedied;
+    }
+
+    public String getNotRemedied() {
+        return notRemedied;
+    }
+
+    public void setNotRemedied(String notRemedied) {
+        this.notRemedied = notRemedied;
+    }
+
+    public String getVendorCorrespondence() {
+        return vendorCorrespondence;
+    }
+
+    public void setVendorCorrespondence(String vendorCorrespondence) {
+        this.vendorCorrespondence = vendorCorrespondence;
     }
 }
