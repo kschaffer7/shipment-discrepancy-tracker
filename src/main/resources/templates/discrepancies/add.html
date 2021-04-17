@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<form method="post">
+
+    <div class="form-group">
+        <label th:for="discrepancyDate">Date</label>
+        <input type="date" class="form-control" th:field="${discrepancy.discrepancyDate}"/>
+    </div>
+
+    <div class="form-group">
+        <label th:for="purchaseOrder">Purchase Order Number</label>
+        <input class="form-control" th:field="${discrepancy.purchaseOrder}" />
+        <span th:errors="${discrepancy.purchaseOrder}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="receivingClerk">Receiving Clerk</label>
+        <select name="receivingClerkId">
+            <option th:each="receivingClerk : ${receivingClerks}"
+                    th:text="${receivingClerk.name}"
+                    th:value="${receivingClerk.id}"></option>
+        </select>
+        <a th:href="@{'/receivingClerks/add'}">Add Receiving Clerks</a>
+    </div>
+
+    <div class="form-group">
+        <label th:for="supplier">Supplier</label>
+        <select name="supplierId">
+            <option th:each="supplier : ${suppliers}"
+                    th:text="${supplier.name}"
+                    th:value="${supplier.id}"></option>
+        </select>
+        <a th:href="@{'/suppliers/add'}">Add Suppliers</a>
+    </div>
+
+    <div class="form-group">
+        <label th:for="discrepancyIssues" class="form-label">Describe Issues</label>
+        <textarea class="form-control" th:field="${discrepancy.discrepancyIssues}" rows="5"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Have the items been credited or replaced?</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Please select</option>
+            <option value="isRemedied">Yes</option>
+            <option value="isNotRemedied">No</option>
+        </select>
+    </div>
+
+
+
+    <div class="form-group">
+        <label th:for="vendorCorrespondence" class="form-label">Vendor Correspondence</label>
+        <textarea class="form-control" th:field="${discrepancy.vendorCorrespondence}" rows="5"></textarea>
+    </div>
+
+    <input type="submit" value="Add Discrepancy">
+</form>
+
+</body>
+</html>

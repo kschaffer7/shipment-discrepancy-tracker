@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<header th:replace="fragments :: header"></header>
+
+<p th:unless="${discrepancies} and ${discrepancies.size()}">No Discrepancies!</p>
+
+<ul>
+    <li th:each="discrepancy : ${discrepancies}">
+        <a th:href="@{'/discrepancies/view/' + ${discrepancy.id}}" th:text="${discrepancy.discrepancyDate} + ' ' + ${discrepancy.supplier} + ' ' + ${discrepancy.purchaseOrder}"></a>
+    </li>
+</ul>
+
+<a th:href="@{'/discrepancies/add'}">Add Discrepancy</a>
+
+</body>
+</html>
