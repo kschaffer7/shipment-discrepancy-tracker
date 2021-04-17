@@ -71,4 +71,12 @@ public class DiscrepancyController {
         return "redirect:";
     }
 
+    @GetMapping("edit/{discrepancyId}")
+    public String displayViewJob(Model model, @PathVariable int discrepancyId) {
+        Optional optionalDiscrepancy = discrepancyRepository.findById(discrepancyId);
+        Discrepancy discrepancy = (Discrepancy) optionalDiscrepancy.get();
+        model.addAttribute("discrepancy", discrepancy);
+        return "discrepancies/edit";
+    }
+
 }
