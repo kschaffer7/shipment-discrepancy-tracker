@@ -44,11 +44,11 @@
     </div>
 
     <div class="form-group">
-        <label>Have the items been credited or replaced?</label>
+        <label th:for="isRemedied">Have the items been credited or replaced?</label>
         <select class="form-select" aria-label="Default select example">
             <option selected>Please select</option>
-            <option value="isRemedied">Yes</option>
-            <option value="isNotRemedied">No</option>
+            <option th:value="${isRemedied == 1}">Yes</option>
+            <option th:value="${isRemedied == 0}">No</option>
         </select>
     </div>
 
