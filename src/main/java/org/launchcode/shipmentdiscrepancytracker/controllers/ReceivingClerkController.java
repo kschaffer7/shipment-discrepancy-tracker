@@ -42,7 +42,7 @@ public class ReceivingClerkController {
             return "receivingClerks/add";
         }
         receivingClerkRepository.save(receivingClerk);
-        return "redirect:";
+        return "redirect:/discrepancies/add";
     }
 
 //    @GetMapping("view/{supplierId}")

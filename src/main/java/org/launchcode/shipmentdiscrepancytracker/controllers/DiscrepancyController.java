@@ -41,6 +41,7 @@ public class DiscrepancyController {
     // lives at /discrepancies/add
     @GetMapping("add")
     public String renderAddDiscrepancyForm(Model model) {
+        model.addAttribute("title", "Add Discrepancy");
         model.addAttribute(new Discrepancy());
         model.addAttribute("suppliers", supplierRepository.findAll());
         model.addAttribute("receivingClerks", receivingClerkRepository.findAll());
@@ -75,6 +76,7 @@ public class DiscrepancyController {
     public String displayEditDiscrepancy(Model model, @PathVariable int discrepancyId) {
         Optional optionalDiscrepancy = discrepancyRepository.findById(discrepancyId);
         Discrepancy discrepancy = (Discrepancy) optionalDiscrepancy.get();
+        model.addAttribute("title", "View / Edit Discrepancy");
         model.addAttribute("discrepancy", discrepancy);
         model.addAttribute("suppliers", supplierRepository.findAll());
         model.addAttribute("receivingClerks", receivingClerkRepository.findAll());
