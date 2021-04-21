@@ -23,7 +23,9 @@
         <select name="receivingClerkId">
             <option th:each="receivingClerk : ${receivingClerks}"
                     th:text="${receivingClerk.name}"
-                    th:value="${receivingClerk.id}"></option>
+                    th:value="${receivingClerk.id}"
+                    th:selected="${receivingClerk.id == discrepancy.receivingClerk.id}">
+            </option>
         </select>
         <a th:href="@{'/receivingClerks/add'}">Add Receiving Clerks</a>
     </div>
@@ -33,7 +35,8 @@
         <select name="supplierId">
             <option th:each="supplier : ${suppliers}"
                     th:text="${supplier.name}"
-                    th:value="${supplier.id}"></option>
+                    th:value="${supplier.id}"
+                    th:selected="${supplier.id == discrepancy.supplier.id}"></option>
         </select>
         <a th:href="@{'/suppliers/add'}">Add Suppliers</a>
     </div>
@@ -44,11 +47,11 @@
     </div>
 
     <div class="form-group">
-        <label th:for="isRemedied">Have the items been credited or replaced?</label>
-        <select class="form-select" aria-label="Default select example">
+        <label>Have the items been credited or replaced?</label>
+        <select name="isRemedied" class="form-select" aria-label="Default select example">
             <option selected>Please select</option>
-            <option th:value="${isRemedied == 1}">Yes</option>
-            <option th:value="${isRemedied == 0}">No</option>
+            <option value="true" th:selected="${discrepancy.isRemedied}">Yes</option>
+            <option value="false" th:selected="${!discrepancy.isRemedied}">No</option>
         </select>
     </div>
 
@@ -57,7 +60,7 @@
         <textarea class="form-control" th:field="${discrepancy.vendorCorrespondence}" rows="5"></textarea>
     </div>
 
-    <input type="submit" value="Add Discrepancy">
+    <input type="submit" value="Apply Changes">
 </form>
 
 </body>

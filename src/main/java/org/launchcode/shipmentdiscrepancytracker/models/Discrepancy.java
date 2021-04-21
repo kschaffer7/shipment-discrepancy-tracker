@@ -26,11 +26,7 @@ public class Discrepancy extends AbstractEntity{
 
     private String discrepancyIssues;
 
-
-
-    private String isRemedied;
-
-    private String notRemedied;
+    private Boolean isRemedied = false;
 
     private String vendorCorrespondence;
 
@@ -87,21 +83,6 @@ public class Discrepancy extends AbstractEntity{
         this.discrepancyIssues = discrepancyIssues;
     }
 
-    public String getIsRemedied() {
-        return isRemedied;
-    }
-
-    public void setIsRemedied(String isRemedied) {
-        this.isRemedied = isRemedied;
-    }
-
-    public String getNotRemedied() {
-        return notRemedied;
-    }
-
-    public void setNotRemedied(String notRemedied) {
-        this.notRemedied = notRemedied;
-    }
 
     public String getVendorCorrespondence() {
         return vendorCorrespondence;
@@ -110,4 +91,7 @@ public class Discrepancy extends AbstractEntity{
     public void setVendorCorrespondence(String vendorCorrespondence) {
         this.vendorCorrespondence = vendorCorrespondence;
     }
+
+    public Boolean getIsRemedied() { return isRemedied; }
+    public void setIsRemedied(Boolean remedied) { isRemedied = remedied; }
 }

@@ -42,7 +42,7 @@ public class SupplierController {
             return "suppliers/add";
         }
         supplierRepository.save(supplier);
-        return "redirect:";
+        return "redirect:/discrepancies/add";
     }
 
 //    @GetMapping("view/{supplierId}")
