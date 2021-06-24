@@ -14,6 +14,7 @@ The app will eliminate the need for piles of notes and untracked issues. It is i
 ## Technologies
 * Java
 * Spring Boot
+* Bootstrap
 * Hibernate
 * MySQL
 
