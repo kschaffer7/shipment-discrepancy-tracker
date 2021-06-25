@@ -7,7 +7,6 @@ The app will eliminate the need for piles of notes and untracked issues. It is i
 
 ## Features
 * Create Accounts
-* Manage Accounts
 * Add/edit/view discrepancies
 * Archive discrepancies that have been resolved by the vendor
 
