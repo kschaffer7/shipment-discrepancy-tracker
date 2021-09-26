@@ -111,38 +111,4 @@ public class DiscrepancyController {
         discrepancyRepository.save(optionalDiscrepancy);
         return "redirect:/discrepancies";
     }
-
-    //    @GetMapping("edit/{discrepancyId}")
-//    public String displayEditDiscrepancy(Model model, @PathVariable int discrepancyId) {
-//        Discrepancy discrepancyToEdit = discrepancyRepository.findById(discrepancyId).get();
-//        model.addAttribute("discrepancy", discrepancyToEdit);
-//        model.addAttribute("suppliers", supplierRepository.findAll());
-//        model.addAttribute("receivingClerks", receivingClerkRepository.findAll());
-//
-//        return "discrepancies/edit";
-//    }
-//
-//    @PostMapping("edit/{discrepancyId}")
-//    public String processEditDiscrepancyForm(@PathVariable int discrepancyId, @ModelAttribute Discrepancy discrepancy, int supplierId, int receivingClerkId) {
-//        Discrepancy discrepancyToEdit = discrepancyRepository.findById(discrepancyId).get();
-//        discrepancyToEdit.setPurchaseOrder(discrepancy.getPurchaseOrder());
-//        discrepancyToEdit.setIsRemedied(discrepancy.getIsRemedied());
-//        discrepancyToEdit.setDiscrepancyDate(discrepancy.getDiscrepancyDate());
-//        discrepancyToEdit.setDiscrepancyIssues(discrepancy.getDiscrepancyIssues());
-//        discrepancyToEdit.setVendorCorrespondence(discrepancy.getVendorCorrespondence());
-//        Optional optSupplier = supplierRepository.findById(supplierId);
-//        Supplier supplier = (Supplier) optSupplier.get();
-//        discrepancyToEdit.setSupplier(supplier);
-//
-//        Optional optReceivingClerk = receivingClerkRepository.findById(receivingClerkId);
-//        ReceivingClerk receivingClerk = (ReceivingClerk) optReceivingClerk.get();
-//        discrepancyToEdit.setReceivingClerk(receivingClerk);
-//
-//        discrepancyRepository.save(discrepancyToEdit);
-//        return "redirect:/discrepancies";
-//
-//    }
-
-
-
 }

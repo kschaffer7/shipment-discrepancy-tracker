@@ -44,17 +44,4 @@ public class ReceivingClerkController {
         receivingClerkRepository.save(receivingClerk);
         return "redirect:/discrepancies/add";
     }
-
-//    @GetMapping("view/{supplierId}")
-//    public String displayViewSupplier(Model model, @PathVariable int supplierId) {
-//
-//        Optional optSupplier = supplierRepository.findById(supplierId);
-//        if (optSupplier.isPresent()) {
-//            Supplier supplier = (Supplier) optSupplier.get();
-//            model.addAttribute("supplier", supplier);
-//            return "suppliers/view";
-//        } else {
-//            return "redirect:../";
-//        }
-//    }
 }
